@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <style>
+table, th, td {
+  border: 5px solid red;
+}
+
+  </style>
+</head>
+<body style="background-color:powderblue;">
+Favorite Colors
+  <form action="/colors" method="POST">
+  <input type="text" placeholder="Your Name" name="user">
+  <input type="text" placeholder="Colors" name="colors">
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+<ul class="colors">
+    <table class = "colors" border="1px" >
+      <tr>
+        <th>Name</th>
+        <th>Favorite Colors</th>
+      </tr>
+  <% for(var i=0; i<colors.length; i++) {%>
+  <tr>
+    <td><%= colors[i].name%>
+    </td>
+    <td><%= colors[i].colors %></td>
+    <td><form method="post" action ="/delete">
+    <input type= "hidden" name="buttonNum" value= "<%=colors[i].num%>">
+    <button type= "submit" value ="delete">delete</button></form>
+    </td>
+    <td><form method="post" action="/update">
+    <input type= "hidden" name="buttonNum2" value= "<%=colors[i].num%>">
+    <button num="update">update</button></form>
+    </td>
+  </tr>
+  <% }%>
+</ul>
+
+</body>
